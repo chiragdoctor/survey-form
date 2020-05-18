@@ -44,11 +44,12 @@ app.get('/feedback', (req, res) => {
     })
 });
 
-app.get('/search/:phone', (req, res) => {
+app.get('/search/:phone(\\d*)', (req, res) => {
     fs.readFile('feedback.txt', (err, data) => {
         if(err) {
             res.send(err.message);
         } else {
+            console.log('pholne')
             const phone = req.params.phone;
             const info = sanatize(data, phone);
             res.send(`<h1>Searched User by phone</h1> <hr /> \n ${info}`);
@@ -56,11 +57,12 @@ app.get('/search/:phone', (req, res) => {
     })
 });
 
-app.get('/search/:fname', (req, res) => {
+app.get('/search/:fname([A-Za-z]*)', (req, res) => {
     fs.readFile('feedback.txt', (err, data) => {
         if(err) {
             res.send(err.message);
         } else {
+            console.log('fname')
             const fname = req.params.fname;
             const info = sanatize(data, fname);
             
