@@ -51,7 +51,7 @@ app.get('/search/:phone', (req, res) => {
         } else {
             const phone = req.params.phone;
             const info = sanatize(data, phone);
-            res.send(`<h1>User</h1> <hr /> \n ${info}`);
+            res.send(`<h1>Searched User by phone</h1> <hr /> \n ${info}`);
         }
     })
 });
@@ -64,7 +64,7 @@ app.get('/search/:fname', (req, res) => {
             const fname = req.params.fname;
             const info = sanatize(data, fname);
             
-            res.send(`<h1>User</h1> <hr /> \n ${info}`);
+            res.send(`<h1>Searched User by first name</h1> <hr /> \n ${info}`);
         }
     })
 });
