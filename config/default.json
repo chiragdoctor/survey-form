@@ -4,5 +4,9 @@
         "password": "!w0gOVxSU(-f",
         "host": "mail.chiragdoctor.com",
         "port": 465
+    },
+    "gmailConfig": {
+        "username": "chiragdoctor5@gmail.com",
+        "password": "invalidpassword"
     }
 }

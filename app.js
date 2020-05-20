@@ -2,7 +2,7 @@ const fs = require('fs');
 const express = require('express');
 const app = express();
 const sanatize = require('./lib/sanatize.js');
-const sendEmail = require('./lib/emailer');
+const emailer = require('./lib/emailer');
 
 const port = process.env.PORT || 5555;
 
@@ -28,8 +28,13 @@ app.post('/save', (req, res) => {
     fs.appendFile('feedback.txt', message, (err) => {
         if (err) {
             res.send(err.message);
-        } else {            
-            sendEmail(name, email);
+        } else {
+            emailer.sendEmail(name, email);
+            
+            // emailer.sendEmailUsingGmail(name, email)
+            // .then(() => {
+            //     res.send('<h1>Thank You</h1><p>An email has been sent to you.</p>');
+            // })
             res.send('<h1>Thank You</h1><p>An email has been sent to you.</p>');
         }
     });
